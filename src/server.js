@@ -215,14 +215,14 @@ app.listen(PORT, '0.0.0.0', () => {
   logger.info(`🚀 TourReviewAI Processing Service started on port ${PORT}`);
   logger.info(`📊 Health check: http://localhost:${PORT}/health`);
   
-  // Start background job processing
-  setInterval(async () => {
-    try {
-      await reviewProcessor.processPendingJobs();
-    } catch (error) {
-      logger.error('Background processing error:', error);
-    }
-  }, 60000); // Process every minute
+  // Start background job processing (disabled temporarily for debugging)
+  // setInterval(async () => {
+  //   try {
+  //     await reviewProcessor.processPendingJobs();
+  //   } catch (error) {
+  //     logger.error('Background processing error:', error);
+  //   }
+  // }, 60000); // Process every minute
 });
 
 // Graceful shutdown
