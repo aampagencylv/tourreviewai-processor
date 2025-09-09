@@ -60,7 +60,7 @@ const supabase = createClient(
 const jobManager = new JobManager(supabase, logger);
 const reviewProcessor = new ReviewProcessor(supabase, logger);
 
-// Health check endpoint
+// Health check endpoint - Railway deployment fix v2
 app.get('/health', (req, res) => {
   res.json({
     status: 'healthy',
