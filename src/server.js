@@ -60,6 +60,18 @@ const supabase = createClient(
 const jobManager = new JobManager(supabase, logger);
 const reviewProcessor = new ReviewProcessor(supabase, logger);
 
+// Root endpoint for Railway routing test
+app.get('/', (req, res) => {
+  res.json({
+    status: 'healthy',
+    service: 'TourReviewAI Processing Service',
+    timestamp: new Date().toISOString(),
+    version: '1.0.0',
+    uptime: process.uptime(),
+    port: PORT
+  });
+});
+
 // Health check endpoint - Railway deployment fix v2
 app.get('/health', (req, res) => {
   res.json({
