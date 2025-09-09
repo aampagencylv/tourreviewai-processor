@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: tourreviewai-processor
+    env: node
+    plan: starter
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: SUPABASE_URL
+        value: https://gzoklzhxnfogmtlkdnhp.supabase.co
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: DATAFORSEO_USERNAME
+        sync: false
+      - key: DATAFORSEO_PASSWORD
+        sync: false
+      - key: ALLOWED_ORIGINS
+        value: https://tourrocket.ai,https://www.tourrocket.ai,http://localhost:3000
+      - key: MAX_CONCURRENT_JOBS
+        value: 5
+      - key: BATCH_SIZE
+        value: 100
+      - key: POLL_INTERVAL
+        value: 30000
+
